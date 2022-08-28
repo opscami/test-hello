@@ -1,14 +1,22 @@
-node{
-    stage('build'){
-        sh 'python3 -V'
-    }
-    stage('test'){
-        git branch: 'main'
-        url: 'https://github.com/opscami/test-hello.git'
-        sh 'python3 hello.py'
-    }
-    stage('deploy'){
-        echo "sucesso!"
-    }
-}
+image: python
+
+stages:
+    - build
+    - test
+    - deploy
+
+build-job:
+    stage: build
+    script:
+        - python3 -V
+        
+test-count:
+    stage: test
+    script:
+        - python3 hello.py
+
+deploy-job:
+    stage: deploy
+    script:
+        - echo "sucesso"
 
