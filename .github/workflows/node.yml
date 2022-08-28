@@ -3,7 +3,8 @@ node{
         sh 'python3 -V'
     }
     stage('test'){
-        git branch: 'main', url: 'https://github.com/opscami/test-hello.git'
+        git branch: 'main'
+        url: 'https://github.com/opscami/test-hello.git'
         sh 'python3 hello.py'
     }
     stage('deploy'){
